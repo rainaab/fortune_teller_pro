@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import ColorSelect from './components/ColorSelect.jsx';
 import NumberSelect from "./components/NumberSelect.jsx";
-// import FortuneReveal from'./components/FortuneReveal.jsx';
+import FortuneReveal from'./components/FortuneReveal.jsx';
 
 
 function App() {
@@ -9,23 +9,24 @@ function App() {
   const [color, setColor] = useState(null)
   const [round1, setRound1] = useState(null)
   const [round2, setRound2] = useState(null)
-  // const [fortune,setFortune] = useState('')
+  const [fortune,setFortune] = useState('')
 
-  // const handleRestart = () => {
-  //     setCount(1)
-  //     setColor(null)
-  //     // setFortune('')
-  //     // setRound1(null)
-  //     // setRound2(null)
+  const handleRestart = () => {
+      setCount(1)
+      setColor(null)
+      setFortune('')
+      setRound1(null)
+      setRound2(null)
 
-  // }
+  }
 
   return (
       <div>
           {count === 1 && <ColorSelect onSelect={(chosen) => {
           setColor(chosen)
-          setCount(2)
-          }} />}
+          setCount(2)}
+          } />
+          }
 
           {count === 2 && <NumberSelect color={color} round={1} onSelect={(num) => {
           setRound1(num)
@@ -38,9 +39,12 @@ function App() {
           setCount(4)}
           } />
           }
+
+        {count === 4 && <FortuneReveal number={round2} fortune={fortune} setFortune={setFortune} onRestart={handleRestart}
+            />
+        }
       </div>
   )
 
 }
-
 export default App
