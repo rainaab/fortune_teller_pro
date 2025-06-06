@@ -9,7 +9,7 @@ function NumberSelect ({onSelect,round = 1}) {
     return(
         <>
 
-            <h1>{round === 1 ? "Now, Pick A Number!" : "Almost There! Pick Another Number to know your fortune"}</h1>
+            <h1>{round === 1 ? "Now, Pick A Number!" : "Almost There! Pick Another Number To Reveal Your Fortune"}</h1>
             <div>
                 {shuffled.map ((num) => (
                     <button key={num} onClick={() => onSelect(num)}>

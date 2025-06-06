@@ -5,6 +5,8 @@ function FortuneReveal ({number, number1, color, onRestart, fortune, setFortune}
     const [error, setError] = useState(null)
 
     useEffect(() => {
+        if (fortune) return
+
         const getFortune = async () => {
             try {
                 const res = await fetch("http://localhost:4000/api/fortune", {
@@ -16,23 +18,27 @@ function FortuneReveal ({number, number1, color, onRestart, fortune, setFortune}
                         number2: number
                     })
                 })
-                    const data = await res.json()
-                    if(data.error) {
-                        throw new Error(data.error)
+                if (!res.ok) {
+                    throw new Error("Sorry we're having trouble loading your fortune. Please try again.")
                 }
-                setFortune(data.fortune)
+                const data = await res.json()
+                console.log("API Responded: ", data)
+
+                if (data.fortune) {
+                    setFortune(data.fortune)
+                } else {
+                    throw new Error("Sorry we're having trouble loading your fortune. Please try again.")
+                }
             } catch(err) {
                 console.error(err)
                 setError("Sorry we're having trouble loading your fortune. Please try again.")
                 }
             }
-            if (!fortune && !error) {
-                getFortune()
-            }
+            getFortune()
         }, [color, number, number1, fortune, error, setFortune])
     return (
         <div>
-            <h1>Your Fortune 🔮</h1>
+            <h1>Getting your Fortune.... 🥠</h1>
 
             {error && <p style={{color: "red"}}>{error}</p>}
             {!error && !fortune && <p>Getting your Fortune 🥠</p>}

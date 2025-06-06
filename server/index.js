@@ -18,10 +18,10 @@ app.post('/api/fortune', async (req, res) => {
     // const {color, number1,number2} = req.body
 
     const prompt = "Please create a short, unhinged fortune-style message as if you were a person obsessed with " +
-        "some vine core, pop-culture,and thebrain-rot side of tiktok and a little petty. Add a little black culture and delusion to " +
+        "some vine core and thebrain-rot side of tiktok and a little petty. Add some black culture and delusion to " +
         "the fortune. Dont be PG-13 we all grown here. Keep it punchy with one-liners. Here are some examples of the " +
         "vibe I am going for. “God gives his hardest battles to his baddest delulus. Lace up.”, " +
-        "“Beyoncé don’t even know you and you already let her down today.” " +
+        "“He’s not your soulmate. He’s your karmic lesson. Swipe again.” " +
         "Dont mention the user inputs and keep it light, short,funny, and gender-neutral"
 
     try {
