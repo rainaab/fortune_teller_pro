@@ -7,7 +7,7 @@ function FortuneReveal ({number, number1, color, onRestart, fortune, setFortune}
     useEffect(() => {
         const getFortune = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/fortune", {
+                const res = await fetch("http://localhost:4000/api/fortune", {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify({
@@ -18,7 +18,7 @@ function FortuneReveal ({number, number1, color, onRestart, fortune, setFortune}
                 })
                     const data = await res.json()
                     if(data.error) {
-                    throw new Error(data.error)
+                        throw new Error(data.error)
                 }
                 setFortune(data.fortune)
             } catch(err) {
