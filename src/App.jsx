@@ -22,25 +22,42 @@ function App() {
 
   return (
       <div>
-          {count === 1 && <ColorSelect onSelect={(chosen) => {
+          {count === 1 &&
+              <ColorSelect
+                  onSelect={(chosen) => {
           setColor(chosen)
           setCount(2)}
           } />
           }
 
-          {count === 2 && <NumberSelect color={color} round={1} onSelect={(num) => {
+          {count === 2 &&
+              <NumberSelect
+                  color={color}
+                  round={1}
+                  onSelect={(num) => {
           setRound1(num)
           setCount(3)}
           } />
           }
 
-          {count === 3 && <NumberSelect color={round1} round={2} onSelect={(num) => {
+          {count === 3 &&
+              <NumberSelect
+                  color={round1}
+                  round={2}
+                  onSelect={(num) => {
           setRound2(num)
           setCount(4)}
           } />
           }
 
-        {count === 4 && <FortuneReveal number={round2} fortune={fortune} setFortune={setFortune} onRestart={handleRestart}
+        {count === 4 &&
+            <FortuneReveal
+                number={round2}
+                number1={round1}
+                color={color}
+                fortune={fortune}
+                setFortune={setFortune}
+                onRestart={handleRestart}
             />
         }
       </div>
