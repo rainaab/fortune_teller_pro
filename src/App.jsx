@@ -2,6 +2,8 @@ import { useState } from 'react'
 import ColorSelect from './components/ColorSelect.jsx';
 import NumberSelect from "./components/NumberSelect.jsx";
 import FortuneReveal from'./components/FortuneReveal.jsx';
+import bgImage from './assets/desk.jpg'
+import paperBall from './assets/paperball.png'
 
 
 function App() {
@@ -21,7 +23,9 @@ function App() {
   }
 
   return (
-      <div>
+      <div
+          className="min-h-screen w-full bg-cover bg-center flex flex-col items-center justify-center text-white"
+      style={{ backgroundImage: `url(${bgImage})` }}>
           {count === 1 &&
               <ColorSelect
                   onSelect={(chosen) => {
