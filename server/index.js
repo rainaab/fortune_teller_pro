@@ -22,7 +22,7 @@ app.post('/api/fortune', async (req, res) => {
         "the fortune. Dont be PG-13 we all grown here. Keep it punchy with one-liners. Here are some examples of the " +
         "vibe I am going for. “God gives his hardest battles to his baddest delulus. Lace up.”, " +
         "“He’s not your soulmate. He’s your karmic lesson. Swipe again.” " +
-        "Dont mention the user inputs and keep it light, short,funny, and gender-neutral"
+        "Dont mention the user inputs and keep it light, short,funny, and gender-neutral. remember to keep it short!"
 
     try {
         const response = await openai.chat.completions.create({
